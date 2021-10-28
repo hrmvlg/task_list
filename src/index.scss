@@ -24,9 +24,10 @@
   &__sidebar{
   background-color: pink;
   width: 200px;
-  height: 100%;
+  height: calc(100% - 120px);
   border-right: 1px solid #f8eaf1;
   padding: 60px 20px;
+  border-radius: 10px;
 
   }
 }
