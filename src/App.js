@@ -1,8 +1,8 @@
 import React from "react";
+import AddList from "./components/AddList";
 import List from "./components/List/index";
 
 function App(){
- 
   return(
     <div className="todo">
       <div className="todo__sidebar">
@@ -31,15 +31,7 @@ function App(){
         ]}
         isRemovable
         />
-        <List
-          items = {[
-            {
-              className: 'list__add-button',
-              icon:<i className="fa fa-plus"></i>,
-              name: 'Добавить список'
-            }
-        ]}
-        />
+        <AddList/>
       </div>
       <div className="todo__tasks"></div>
     </div>
