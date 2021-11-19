@@ -7,7 +7,7 @@ import "./AddList.scss";
 const AddList = ({ colors }) => {
 
    const [visiblePopup, showPopup] = useState(true)
-   const [selectedColor, selectColor] = useState(null)
+   const [selectedColor, selectColor] = useState(colors[0].id)
 
    console.log(selectedColor)
 
