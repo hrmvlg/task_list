@@ -2,7 +2,11 @@ import React from "react";
 import AddList from "./components/AddList";
 import List from "./components/List/index";
 
+import DB from './asserts/db.json'
+
+
 function App(){
+
   return(
     <div className="todo">
       <div className="todo__sidebar">
@@ -15,23 +19,22 @@ function App(){
         />
         <List items={[
           {
-            color: 'red' ,
-            name: 'Пук',
+            color: 'red',
+            name: 'Покупки',
             active: true,
           },
           {
             color: 'green' ,
-            name: 'Среньк',
-            active: true,
+            name: 'Фильмы и сериалы',
           },
           {
             color: 'blue' ,
-            name: 'Как',
+            name: 'Личное',
           },
         ]}
         isRemovable
         />
-        <AddList/>
+        <AddList colors={DB.colors}/>
       </div>
       <div className="todo__tasks"></div>
     </div>

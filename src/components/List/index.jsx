@@ -1,8 +1,11 @@
 import React from "react";
-import './List.scss';
 import classNames from 'classnames';
+import './List.scss';
+
+import Budge from '../../Budge'
 
 const List = ({ items, isRemovable, onClick }) => {
+   console.log(items, isRemovable)
    return (
       <ul onClick={onClick} className="list">
          {items.map((item, index) => (
@@ -11,7 +14,7 @@ const List = ({ items, isRemovable, onClick }) => {
                   {item.icon ? (
                      item.icon
                   ) : (
-                     <i className={`badge badge--${item.color}`}></i>
+                     <Budge color={item.color} />
                   )}
                </i>
                <span>{item.name}</span>

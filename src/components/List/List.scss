@@ -21,31 +21,17 @@
        box-shadow: 0px, 2px, 10px rgba(0, 0, 0, 0.05);
        border-radius: 4px;
      }
+    
+     .badge{
+       position: relative;
+       left: 5px;
+     }
 
      i{
        display: inline-flex;
        margin-right: 8px;
        padding: 10px, 12px;
      }
-
-     .badge{
-         width: 10px;
-         height: 10px;
-         border-radius: 30px;
-         position: relative;
-         left: 5px;
-
-         &--red{
-           background-color: red;
-        }
-
-        &--green{
-           background-color: green;
-        }
-
-        &--blue{
-         background-color: blue;
-        }
-     }
+     
    }
  }
