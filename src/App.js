@@ -5,7 +5,7 @@ import List from "./components/List/index";
 import DB from './asserts/db.json'
 
 function App(){
-
+  
   return(
     <div className="todo">
       <div className="todo__sidebar">
@@ -16,21 +16,10 @@ function App(){
           },
         ]}
         />
-        <List items={[
-          {
-            color: 'red',
-            name: 'Покупки',
-            active: true,
-          },
-          {
-            color: 'green' ,
-            name: 'Фильмы и сериалы',
-          },
-          {
-            color: 'blue' ,
-            name: 'Личное',
-          },
-        ]}
+        <List items={DB.lists.map(item => {
+          item.color = DB.colors.filter(color => color.id === item.colorId)[0].name 
+          return item
+        })}
         isRemovable
         />
         <AddList colors={DB.colors}/>
