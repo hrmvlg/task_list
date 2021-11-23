@@ -6,13 +6,13 @@ import "./AddList.scss";
 
 const AddList = ({ colors }) => {
 
-   const [visiblePopup, showPopup] = useState(true)
+   const [visiblePopup, showPopup] = useState(false)
    const [selectedColor, selectColor] = useState(colors[0].id)
 
    console.log(selectedColor)
 
    return (
-      <div className="add-list">
+      < div className="add-list" >
          <List
             onClick={() => showPopup(true)}
             items={[
@@ -22,8 +22,10 @@ const AddList = ({ colors }) => {
                   name: 'Добавить список'
                }
             ]} />
-         {visiblePopup &&
+         {
+            visiblePopup &&
             <div className="add-list__popup">
+               <i className=" fa fa-times-circle" />
                <input className="field" type="text" placeholder="Название списка" />
                <div className="add-list__popup-colors">
                   {

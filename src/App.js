@@ -4,7 +4,6 @@ import List from "./components/List/index";
 
 import DB from './asserts/db.json'
 
-
 function App(){
 
   return(
