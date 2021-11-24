@@ -10,6 +10,13 @@ const AddList = ({ colors, onAdd }) => {
    const [selectedColor, selectColor] = useState(colors[0].id)
    const [inputValue, setinputValue] = useState('')
 
+   const onClose = () => {
+      showPopup(false)
+      setinputValue('')
+      selectColor(colors[0].id)
+   }
+
+
    const addList = () => {
       if (!inputValue || inputValue === "") {
          alert("Введите название списка!")
@@ -22,9 +29,7 @@ const AddList = ({ colors, onAdd }) => {
          name: inputValue,
          color
       })
-      showPopup(false)
-      setinputValue('')
-      selectColor(colors[0].id)
+      onClose()
    }
 
    return (
@@ -41,7 +46,7 @@ const AddList = ({ colors, onAdd }) => {
          {
             visiblePopup &&
             <div className="add-list__popup">
-               <i className=" fa fa-times-circle" />
+               <i onClick={onClose} className=" fa fa-times-circle" />
                <input
                   className="field"
                   type="text"
