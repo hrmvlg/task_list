@@ -5,7 +5,6 @@ import './List.scss';
 import Budge from '../../Budge'
 
 const List = ({ items, isRemovable, onClick }) => {
-   console.log(items, isRemovable)
    return (
       <ul onClick={onClick} className="list">
          {items.map((item, index) => (
