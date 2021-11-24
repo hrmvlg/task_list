@@ -22,6 +22,9 @@ const AddList = ({ colors, onAdd }) => {
          name: inputValue,
          color
       })
+      showPopup(false)
+      setinputValue('')
+      selectColor(colors[0].id)
    }
 
    return (
