@@ -31,6 +31,7 @@ function App(){
         />
         <List items={list}
         isRemovable
+        onRemove = {(item)=>{console.log(item)}}
         />
         <AddList onAdd={onAddList} colors={DB.colors}/>
       </div>

@@ -4,7 +4,12 @@ import './List.scss';
 
 import Budge from '../../Budge'
 
-const List = ({ items, isRemovable, onClick }) => {
+const List = ({ items, isRemovable, onClick, onRemove }) => {
+   const remvoeList = (item) => {
+      if (window.confirm('Вы действительно хотите удалить список?')) {
+         onRemove(item)
+      }
+   }
    return (
       <ul onClick={onClick} className="list">
          {items.map((item, index) => (
@@ -17,6 +22,8 @@ const List = ({ items, isRemovable, onClick }) => {
                   )}
                </i>
                <span>{item.name}</span>
+               {isRemovable && <i class="list__remove-icon fa fa-times"
+                  onClick={() => remvoeList(item)} />}
             </li>
          ))}
       </ul>
