@@ -1,13 +1,13 @@
 .list{
   $self: &;
-
-   margin-bottom: 30px;
-   
-   &__add-button{
-     opacity: 0.4;
-
-     &:hover{
-       opacity: 1;
+  
+  margin-bottom: 30px;
+  
+  &__add-button{
+    opacity: 0.4;
+    
+    &:hover{
+      opacity: 1;
      }
    }
 
@@ -16,44 +16,44 @@
      align-items: center;
      padding: 10px 12px;
      cursor: pointer;
-
+     
      &:hover #{$self}__remove-icon{
        opacity: 0.2;
-     }
-
-     #{$self}__remove-icon{
-      opacity: 0;
- 
-      &:hover{
-        opacity: 0.8    ;
       }
-    }
-
-     span{
-       flex: 1;
-     }
-
-     &:hover{
-       background: rgba(255, 255, 255, 0.5);
-       border-radius: 4px;
-     }
-
-     &.active{
-       background: #f8eaf1;
-       box-shadow: 0px, 2px, 10px rgba(0, 0, 0, 0.05);
-       border-radius: 4px;
-     }
-    
-     .badge{
-       position: relative;
+      
+      #{$self}__remove-icon{
+        opacity: 0;
+        
+        &:hover{
+          opacity: 0.8    ;
+        }
+      }
+      
+      span{
+        flex: 1;
+      }
+      
+      &:hover{
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 4px;
+      }
+      
+      &.active{
+        background: #f8eaf1;
+        box-shadow: 0px, 2px, 10px rgba(0, 0, 0, 0.05);
+        border-radius: 4px;
+      }
+      
+      .badge{
+        position: relative;
        left: 5px;
-     }
-
-     i{
-       display: inline-flex;
-       margin-right: 8px;
-       padding: 10px, 12px;
-     }
-     
-   }
- }
+      }
+      
+      i{
+        display: inline-flex;
+        margin-right: 8px;
+        padding: 10px, 12px;
+      }
+      
+    }
+  }
