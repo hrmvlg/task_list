@@ -3,8 +3,12 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import '../node_modules/font-awesome/css/font-awesome.min.css'; 
 
-
 import './index.scss';
 
 
 ReactDOM.render(<App />,  document.getElementById('root'));
+
+// app.use(express.static(__dirname));
+// app.get("/*", function(req, res) {
+//   res.sendFile(path.join(__dirname, "index.html"));
+// });

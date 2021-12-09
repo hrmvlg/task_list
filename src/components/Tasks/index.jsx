@@ -2,28 +2,28 @@ import React from 'react'
 import './tasks.scss'
 
 
-export default function Tasks() {
+const Tasks = ({ list }) => {
    return (
-      <div>
-         <div className="tasks">
-            <h2 className="tasks__title">Фронтэнд
-               <i className="tasks__icon fa fa-edit" />
-            </h2>
+      <div className="tasks">
+         <h2 className="tasks__title">{list.name}
+            <i className="tasks__icon fa fa-edit" />
+         </h2>
 
-            <div className="tasks__items">
-               <div className="tasks__items-row">
+         <div className="tasks__items">
+            {list.tasks.map(task => (
+               <div key={task.id} className="tasks__items-row">
                   <div className="checkbox">
-                     <input id="check" type="checkbox" />
-                     <label htmlFor="check">
+                     <input id={`task-${task.id}`} type="checkbox" />
+                     <label htmlFor={`task-${task.id}`}>
                         <i class="fa fa-check"></i>
                      </label>
                   </div>
-
-                  <input value="Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, maxime?"></input>
+                  <input readOnly value={task.text} />
                </div>
-
-            </div>
+            ))}
          </div>
       </div>
    )
 }
+
+export default Tasks;

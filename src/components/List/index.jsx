@@ -1,13 +1,17 @@
 import React from "react";
 import classNames from 'classnames';
+import axios from 'axios'
+
 import './List.scss';
 
-import Budge from '../../Budge'
+import Budge from '../Budge'
 
 const List = ({ items, isRemovable, onClick, onRemove }) => {
    const remvoeList = (item) => {
       if (window.confirm('Вы действительно хотите удалить список?')) {
-         onRemove(item)
+         axios.delete('http://localhost:3001/lists/' + item.id).then(() => {
+            onRemove(item.id)
+         })
       }
    }
    return (
@@ -18,7 +22,7 @@ const List = ({ items, isRemovable, onClick, onRemove }) => {
                   {item.icon ? (
                      item.icon
                   ) : (
-                     <Budge color={item.color} />
+                     <Budge color={item.color.name} />
                   )}
                </i>
                <span>{item.name}</span>
