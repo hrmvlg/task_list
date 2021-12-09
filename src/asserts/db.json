@@ -21,9 +21,19 @@
       "colorId": 2
     },
     {
-      "name": "Test",
-      "colorId": 6,
+      "name": "test1",
+      "colorId": 3,
       "id": 5
+    },
+    {
+      "name": "test2",
+      "colorId": 7,
+      "id": 6
+    },
+    {
+      "name": "test3",
+      "colorId": 5,
+      "id": 7
     }
   ],
   "tasks": [

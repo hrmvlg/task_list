@@ -6,7 +6,7 @@ import './List.scss';
 
 import Budge from '../Budge'
 
-const List = ({ items, isRemovable, onClick, onRemove }) => {
+const List = ({ items, isRemovable, onClick, onRemove, onClickItem, activeItem }) => {
    const remvoeList = (item) => {
       if (window.confirm('Вы действительно хотите удалить список?')) {
          axios.delete('http://localhost:3001/lists/' + item.id).then(() => {
@@ -17,7 +17,13 @@ const List = ({ items, isRemovable, onClick, onRemove }) => {
    return (
       <ul onClick={onClick} className="list">
          {items.map((item, index) => (
-            <li key={index} className={classNames(item.className, { 'active': item.active })}>
+            <li
+               key={index}
+               className={classNames(item.className, {
+                  active: activeItem && activeItem.id === item.id
+               })}
+               onClick={onClickItem ? () => onClickItem(item) : null}
+            >
                <i>
                   {item.icon ? (
                      item.icon
@@ -25,7 +31,10 @@ const List = ({ items, isRemovable, onClick, onRemove }) => {
                      <Budge color={item.color.name} />
                   )}
                </i>
-               <span>{item.name}</span>
+               <span>
+                  {item.name}
+                  {item.tasks && ` (${item.tasks.length})`}
+               </span>
                {isRemovable && <i class="list__remove-icon fa fa-times"
                   onClick={() => remvoeList(item)} />}
             </li>
@@ -33,5 +42,4 @@ const List = ({ items, isRemovable, onClick, onRemove }) => {
       </ul>
    )
 }
-
 export default List;

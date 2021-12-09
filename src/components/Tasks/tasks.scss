@@ -28,6 +28,17 @@
 
    &__items{
       margin-top: 30px;
+      position: relative;
+      h2{
+         color: rosybrown;
+         font-family: Montserrat;
+         font-size: 22px;
+         font-weight: bold;
+         position:absolute;
+         top: 100px;
+         left: 90px;
+         opacity: 0.5;
+      }
       &-row{
          display: flex;
          align-items: center;

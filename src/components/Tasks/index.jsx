@@ -5,11 +5,13 @@ import './tasks.scss'
 const Tasks = ({ list }) => {
    return (
       <div className="tasks">
-         <h2 className="tasks__title">{list.name}
+         <h2 className="tasks__title">
+            {list.name}
             <i className="tasks__icon fa fa-edit" />
          </h2>
 
          <div className="tasks__items">
+            {!list.tasks.length && <h2>Задачи отсутствуют</h2>}
             {list.tasks.map(task => (
                <div key={task.id} className="tasks__items-row">
                   <div className="checkbox">
@@ -25,5 +27,4 @@ const Tasks = ({ list }) => {
       </div>
    )
 }
-
 export default Tasks;

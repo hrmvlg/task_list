@@ -6,6 +6,7 @@ import {List, AddList, Tasks} from './components'
 function App(){ 
   const [lists, setLists] = useState(null)
   const [colors, setColors] = useState(null)
+  const [activeItem, setActiveItem] = useState(null)
 
   useEffect(() => {
     axios.get('http://localhost:3001/lists?_expand=color&_embed=tasks').then(({data})=>{
@@ -33,6 +34,7 @@ function App(){
               name: "Все задачи"
             }
           ]} />
+
           {lists ? (
           <List
               items={lists}
@@ -40,13 +42,17 @@ function App(){
                 const newLists = lists.filter(item => item.id !== id);
                 setLists(newLists);
               } }
+              onClickItem = {item=>{
+                setActiveItem(item)
+              }}
+              activeItem={activeItem}
               isRemovable />
             ):(
               'Загрузка...'
             )}
             <AddList onAdd={onAddList} colors={colors}/>
       </div>
-      <div className="todo__tasks">{lists && <Tasks list={lists[1]} />}</div>
+      <div className="todo__tasks">{lists && activeItem && <Tasks list={activeItem} />}</div>
     </div>
   )}
 export default App;
