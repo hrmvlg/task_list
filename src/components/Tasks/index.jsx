@@ -3,7 +3,6 @@ import React from 'react'
 import './tasks.scss'
 import AddTaskForm from './AddTaskForm'
 
-
 const Tasks = ({ list, onEditTitle, onAddTask }) => {
    const editTitle = () => {
       const newTitle = window.prompt('Название списка', list.name)

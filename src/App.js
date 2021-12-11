@@ -46,11 +46,11 @@ function App(){
       <div className="todo__sidebar">
         <List items={[
             {
-              icon: <i className="fa fa-list-ul" />,
-              name: "Все задачи"
+              active : true,
+              "icon": <i className="fa fa-list-ul" />,
+              "name": "Все задачи"
             }
           ]} />
-
           {lists ? (
           <List
               items={lists}

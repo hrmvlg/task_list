@@ -6,7 +6,14 @@ import './List.scss';
 
 import Budge from '../Budge'
 
-const List = ({ items, isRemovable, onClick, onRemove, onClickItem, activeItem }) => {
+const List = ({
+   items,
+   isRemovable,
+   onClick,
+   onRemove,
+   onClickItem,
+   activeItem
+}) => {
    const remvoeList = (item) => {
       if (window.confirm('Вы действительно хотите удалить список?')) {
          axios.delete('http://localhost:3001/lists/' + item.id).then(() => {
@@ -20,7 +27,7 @@ const List = ({ items, isRemovable, onClick, onRemove, onClickItem, activeItem }
             <li
                key={index}
                className={classNames(item.className, {
-                  active: activeItem && activeItem.id === item.id
+                  active: item.active ? item.active : activeItem && activeItem.id === item.id
                })}
                onClick={onClickItem ? () => onClickItem(item) : null}
             >
