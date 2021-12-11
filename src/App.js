@@ -18,11 +18,18 @@ function App(){
   },[])
   
   const onAddList = (obj) => {
-   const newList = [
-     ...lists,
-     obj
-   ]
+   const newList = [...lists, obj]
    setLists(newList)
+ }
+
+ const onEditListTitle = (id, title) =>{
+  const newList = lists.map(item=>{
+    if (item.id === id) {
+      item.name = title
+    }
+    return item
+  })
+  setLists(newList)
  }
 
   return(
@@ -52,7 +59,13 @@ function App(){
             )}
             <AddList onAdd={onAddList} colors={colors}/>
       </div>
-      <div className="todo__tasks">{lists && activeItem && <Tasks list={activeItem} />}</div>
+      <div className="todo__tasks">
+        {lists && activeItem && 
+        <Tasks 
+        list={activeItem} 
+        onEditTitle={onEditListTitle}
+        />}
+      </div>
     </div>
   )}
 export default App;
